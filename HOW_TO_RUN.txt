@@ -1,0 +1,19 @@
+To run this project, follow these steps:
+
+1.  **Set up a PHP-enabled web server:** Ensure you have a web server (like Apache or Nginx) with PHP (version 8.3 recommended) installed and configured.
+
+2.  **Place the project files:** Copy the `src` directory and `index.php`, `unsubscribe.php`, `cron.php`, `functions.php`, `registered_emails.txt`, `setup_cron.sh` files into your web server's document root (e.g., `htdocs` for Apache).
+
+3.  **Configure `php.ini` for mail():** Ensure your `php.ini` is configured to send emails using the `mail()` function. This typically involves setting `SMTP` and `smtp_port` on Windows, or configuring `sendmail_path` on Linux/macOS.
+
+4.  **Set up the CRON job:**
+    *   Navigate to the `src` directory in your terminal.
+    *   Run the `setup_cron.sh` script: `./setup_cron.sh` (On Windows, you might need a Linux-like environment such as WSL or Git Bash to run this script, or manually add the cron job).
+    *   This script will add a cron job that executes `cron.php` every 5 minutes to send GitHub updates.
+
+5.  **Access the application:** Open your web browser and navigate to the URL where you placed the `index.php` file (e.g., `http://localhost/src/index.php`).
+
+6.  **Test the features:**
+    *   **Email Verification:** Enter an email in the form and submit. Check the email for the verification code and enter it to register.
+    *   **Unsubscribe:** Click the unsubscribe link in a GitHub update email, enter your email, and then the verification code to unsubscribe.
+    *   **GitHub Updates:** Wait for the CRON job to run (or manually execute `cron.php` from the command line) to see GitHub updates sent to registered emails.
